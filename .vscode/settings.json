@@ -1,0 +1,13 @@
+{
+    "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "always",
+    "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+    "rust-analyzer.inlayHints.reborrowHints.enable": "mutable",
+
+    "[rust]": {
+        "editor.wordWrapColumn": 80,
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file",
+        "editor.inlayHints.enabled": "offUnlessPressed",
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    }
+}

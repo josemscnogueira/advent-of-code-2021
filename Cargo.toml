@@ -1,0 +1,53 @@
+[package]
+name = "advent-of-code-2021"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "sonar-sweep"
+path = "01/src/main.rs"
+
+[[bin]]
+name = "dive"
+path = "02/src/main.rs"
+
+[[bin]]
+name = "binary-diagnostic"
+path = "03/src/main.rs"
+
+[[bin]]
+name = "giant-squid"
+path = "04/src/main.rs"
+
+[[bin]]
+name = "extended-polymerization-part1"
+path = "14/src/main.part1.rs"
+
+[[bin]]
+name = "extended-polymerization-part2"
+path = "14/src/main.part2.rs"
+
+[[bin]]
+name = "hydrothermal-venture"
+path = "15/src/main.rs"
+
+[[bin]]
+name = "snailfish"
+path = "18/src/main.rs"
+
+[[bin]]
+name = "dirac-dice-part1"
+path = "21/src/main.part1.rs"
+
+[[bin]]
+name = "dirac-dice-part2"
+path = "21/src/main.part2.rs"
+
+[dependencies]
+grid = "*"
+itertools = "*"
+priority-queue = "*"
+nalgebra = "*"
+num = "*"
+sorted-vec = "*"
