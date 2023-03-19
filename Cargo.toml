@@ -25,6 +25,10 @@ name = "hydrothermal-venture"
 path = "05/src/main.rs"
 
 [[bin]]
+name = "lanternfish"
+path = "06/src/main.rs"
+
+[[bin]]
 name = "extended-polymerization-part1"
 path = "14/src/main.part1.rs"
 
