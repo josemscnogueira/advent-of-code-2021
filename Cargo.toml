@@ -21,6 +21,10 @@ name = "giant-squid"
 path = "04/src/main.rs"
 
 [[bin]]
+name = "hydrothermal-venture"
+path = "05/src/main.rs"
+
+[[bin]]
 name = "extended-polymerization-part1"
 path = "14/src/main.part1.rs"
 
@@ -29,7 +33,7 @@ name = "extended-polymerization-part2"
 path = "14/src/main.part2.rs"
 
 [[bin]]
-name = "hydrothermal-venture"
+name = "chiton"
 path = "15/src/main.rs"
 
 [[bin]]
