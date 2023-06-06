@@ -41,6 +41,10 @@ name = "smoke-basin"
 path = "09/src/main.rs"
 
 [[bin]]
+name = "syntax-scoring"
+path = "10/src/main.rs"
+
+[[bin]]
 name = "extended-polymerization-part1"
 path = "14/src/main.part1.rs"
 
@@ -71,3 +75,4 @@ priority-queue = "*"
 nalgebra = "*"
 num = "*"
 sorted-vec = "*"
+phf = { version = "*", features = ["macros"] }
