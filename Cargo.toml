@@ -33,6 +33,14 @@ name = "the-treachery-of-whales"
 path = "07/src/main.rs"
 
 [[bin]]
+name = "seven-segment-search"
+path = "08/src/main.rs"
+
+[[bin]]
+name = "smoke-basin"
+path = "09/src/main.rs"
+
+[[bin]]
 name = "extended-polymerization-part1"
 path = "14/src/main.part1.rs"
 
