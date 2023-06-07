@@ -45,6 +45,10 @@ name = "syntax-scoring"
 path = "10/src/main.rs"
 
 [[bin]]
+name = "dumbo-octopus"
+path = "11/src/main.rs"
+
+[[bin]]
 name = "extended-polymerization-part1"
 path = "14/src/main.part1.rs"
 
