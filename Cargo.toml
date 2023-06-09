@@ -53,6 +53,10 @@ name = "passage-pathing"
 path = "12/src/main.rs"
 
 [[bin]]
+name = "transparent-origami"
+path = "13/src/main.rs"
+
+[[bin]]
 name = "extended-polymerization-part1"
 path = "14/src/main.part1.rs"
 
