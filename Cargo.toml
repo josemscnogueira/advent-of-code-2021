@@ -49,6 +49,10 @@ name = "dumbo-octopus"
 path = "11/src/main.rs"
 
 [[bin]]
+name = "passage-pathing"
+path = "12/src/main.rs"
+
+[[bin]]
 name = "extended-polymerization-part1"
 path = "14/src/main.part1.rs"
 
