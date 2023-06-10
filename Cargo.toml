@@ -69,6 +69,10 @@ name = "chiton"
 path = "15/src/main.rs"
 
 [[bin]]
+name = "packet-decoder"
+path = "16/src/main.rs"
+
+[[bin]]
 name = "snailfish"
 path = "18/src/main.rs"
 
