@@ -7,7 +7,7 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "packet-decoder",
+            "name": "16: packet-decoder",
             "cargo": {
                 "args": [
                     "build",
@@ -20,6 +20,24 @@
                 }
             },
             "args": ["16/data/input.txt"],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "17: trick-shot",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=trick-shot",
+                    "--package=advent-of-code-2021"
+                ],
+                "filter": {
+                    "name": "trick-shot",
+                    "kind": "bin"
+                }
+            },
+            "args": ["17/data/input.txt"],
             "cwd": "${workspaceFolder}"
         },
     ]

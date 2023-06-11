@@ -73,6 +73,10 @@ name = "packet-decoder"
 path = "16/src/main.rs"
 
 [[bin]]
+name = "trick-shot"
+path = "17/src/main.rs"
+
+[[bin]]
 name = "snailfish"
 path = "18/src/main.rs"
 
@@ -92,3 +96,4 @@ nalgebra = "*"
 num = "*"
 sorted-vec = "*"
 phf = { version = "*", features = ["macros"] }
+regex = "*"
