@@ -58,5 +58,23 @@
             "args": ["19/data/input.txt"],
             "cwd": "${workspaceFolder}"
         },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "20: trench-map",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=trench-map",
+                    "--package=advent-of-code-2021"
+                ],
+                "filter": {
+                    "name": "trench-map",
+                    "kind": "bin"
+                }
+            },
+            "args": ["20/data/example.txt"],
+            "cwd": "${workspaceFolder}"
+        },
     ]
 }
