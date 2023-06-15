@@ -81,6 +81,10 @@ name = "snailfish"
 path = "18/src/main.rs"
 
 [[bin]]
+name = "beacon-scanner"
+path = "19/src/main.rs"
+
+[[bin]]
 name = "dirac-dice-part1"
 path = "21/src/main.part1.rs"
 

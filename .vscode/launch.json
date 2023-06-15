@@ -40,5 +40,23 @@
             "args": ["17/data/input.txt"],
             "cwd": "${workspaceFolder}"
         },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "19: beacon-scanner",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=beacon-scanner",
+                    "--package=advent-of-code-2021"
+                ],
+                "filter": {
+                    "name": "beacon-scanner",
+                    "kind": "bin"
+                }
+            },
+            "args": ["19/data/input.txt"],
+            "cwd": "${workspaceFolder}"
+        },
     ]
 }
