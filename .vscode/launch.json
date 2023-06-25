@@ -76,5 +76,23 @@
             "args": ["20/data/example.txt"],
             "cwd": "${workspaceFolder}"
         },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "22: reactor-reboot",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=reactor-reboot",
+                    "--package=advent-of-code-2021"
+                ],
+                "filter": {
+                    "name": "reactor-reboot",
+                    "kind": "bin"
+                }
+            },
+            "args": ["22/data/input.txt"],
+            "cwd": "${workspaceFolder}"
+        },
     ]
 }

@@ -96,6 +96,10 @@ path = "21/src/main.part1.rs"
 name = "dirac-dice-part2"
 path = "21/src/main.part2.rs"
 
+[[bin]]
+name = "reactor-reboot"
+path = "22/src/main.rs"
+
 [dependencies]
 grid = "*"
 itertools = "*"
