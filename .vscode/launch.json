@@ -94,5 +94,23 @@
             "args": ["22/data/input.txt"],
             "cwd": "${workspaceFolder}"
         },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "23: amphipod",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=amphipod",
+                    "--package=advent-of-code-2021"
+                ],
+                "filter": {
+                    "name": "amphipod",
+                    "kind": "bin"
+                }
+            },
+            "args": ["23/data/example.txt"],
+            "cwd": "${workspaceFolder}"
+        },
     ]
 }
