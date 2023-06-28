@@ -13,7 +13,7 @@ pub struct Borrow {
     pub energy: usize,
     pub moves: Vec<Move>,
     hallway: Vec<Option<Amphipods>>,
-    rooms: [[Option<Amphipods>; 2]; 4],
+    rooms: [Vec<Option<Amphipods>>; 4],
 }
 
 impl Borrow {
@@ -33,19 +33,19 @@ impl Borrow {
             moves: Vec::new(),
             hallway: vec![None; 11],
             rooms: [
-                [
+                vec![
                     Some(diagram[2][3].try_into().unwrap()),
                     Some(diagram[3][3].try_into().unwrap()),
                 ],
-                [
+                vec![
                     Some(diagram[2][5].try_into().unwrap()),
                     Some(diagram[3][5].try_into().unwrap()),
                 ],
-                [
+                vec![
                     Some(diagram[2][7].try_into().unwrap()),
                     Some(diagram[3][7].try_into().unwrap()),
                 ],
-                [
+                vec![
                     Some(diagram[2][9].try_into().unwrap()),
                     Some(diagram[3][9].try_into().unwrap()),
                 ],
@@ -80,12 +80,14 @@ impl Borrow {
 
     pub fn is_solved(&self) -> bool {
         self.hallway.iter().all(|a| a.is_none())
-            && self.rooms.iter().enumerate().all(|(index, [a1, a2])| {
-                if let (Some(a1), Some(a2)) = (a1, a2) {
-                    a1.target_room() == index && a2.target_room() == index
-                } else {
-                    false
-                }
+            && self.rooms.iter().enumerate().all(|(index, a)| {
+                a.iter().all(|a| {
+                    if let Some(a) = a {
+                        a.target_room() == index
+                    } else {
+                        false
+                    }
+                })
             })
     }
 
@@ -119,7 +121,7 @@ impl Borrow {
     pub fn get_all_moves(&self) -> Vec<Move> {
         let mut result = Vec::new();
 
-        for index in self.get_movable_amphipods_hallway() {
+        for (index, level) in self.get_movable_amphipods_hallway() {
             let room = self.hallway[index].unwrap().target_room();
             let entrance = Self::ENTRANCES[room];
             let (min, max) = if entrance < index {
@@ -130,10 +132,7 @@ impl Borrow {
 
             // If hallway is clear, that this is a valid move (push)
             if (min..=max).all(|i| self.hallway[i].is_none()) {
-                result.push(Move::Enter(
-                    index,
-                    (room, if self.rooms[room][1].is_none() { 1 } else { 0 }),
-                ));
+                result.push(Move::Enter(index, (room, level)));
             }
         }
 
@@ -160,15 +159,15 @@ impl Borrow {
         let mut result = Vec::new();
 
         for (index, room) in self.rooms.iter().enumerate() {
-            if let Some(a) = room[0] {
-                if a.target_room() != index
-                    || room[1].unwrap().target_room() != index
-                {
-                    result.push((index, 0));
-                }
-            } else if let Some(a) = room[1] {
-                if a.target_room() != index {
-                    result.push((index, 1));
+            for (level, r) in room.iter().enumerate() {
+                if let Some(a) = r {
+                    if a.target_room() != index
+                        || ((level + 1)..room.len())
+                            .any(|i| room[i].unwrap().target_room() != index)
+                    {
+                        result.push((index, level));
+                        break;
+                    }
                 }
             }
         }
@@ -176,19 +175,22 @@ impl Borrow {
         result
     }
 
-    fn get_movable_amphipods_hallway(&self) -> Vec<usize> {
+    fn get_movable_amphipods_hallway(&self) -> Vec<(usize, usize)> {
         let mut result = Vec::new();
 
         for (index, &a) in
             self.hallway.iter().enumerate().filter(|(_, a)| a.is_some())
         {
             let target = a.unwrap().target_room();
+            let occupancy = &self.rooms[target];
 
-            if self.rooms[target][1].is_none()
-                || (self.rooms[target][0].is_none()
-                    && self.rooms[target][1].unwrap().target_room() == target)
-            {
-                result.push(index);
+            for slot in (0..occupancy.len()).rev() {
+                if occupancy[slot].is_none() {
+                    result.push((index, slot));
+                    break;
+                } else if occupancy[slot].unwrap().target_room() != target {
+                    break;
+                }
             }
         }
 
