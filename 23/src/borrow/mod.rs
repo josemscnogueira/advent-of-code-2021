@@ -53,6 +53,26 @@ impl Borrow {
         }
     }
 
+    pub fn unfold(&mut self) {
+        const HIDDEN: [[Amphipods; 2]; 4] = [
+            [Amphipods::D, Amphipods::D],
+            [Amphipods::C, Amphipods::B],
+            [Amphipods::B, Amphipods::A],
+            [Amphipods::A, Amphipods::C],
+        ];
+
+        if self.rooms.iter().any(|r| r.len() != 2) {
+            return;
+        }
+
+        for (index, room) in self.rooms.iter_mut().enumerate() {
+            room.resize(4, None);
+            room[3] = room[1];
+            room[1] = Some(HIDDEN[index][0]);
+            room[2] = Some(HIDDEN[index][1]);
+        }
+    }
+
     pub fn optimize(start: Self) -> Option<Self> {
         let mut multiverse = vec![start];
         let mut result: Option<Self> = None;

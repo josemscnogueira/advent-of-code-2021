@@ -7,13 +7,15 @@ fn main() {
         .nth(1)
         .expect("Filepath for inputs not provided");
 
-    let borrow = borrow::Borrow::parse(&filepath);
+    let mut borrow = borrow::Borrow::parse(&filepath);
     println!(
         "Problem #1: {:?}",
-        if let Some(b) = borrow::Borrow::optimize(borrow) {
-            Some((b.energy, b.moves))
-        } else {
-            None
-        }
+        borrow::Borrow::optimize(borrow.clone()).unwrap().energy
+    );
+
+    borrow.unfold();
+    println!(
+        "Problem #2: {:?}",
+        borrow::Borrow::optimize(borrow).unwrap().energy
     );
 }
