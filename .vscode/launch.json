@@ -112,5 +112,24 @@
             "args": ["23/data/example.txt"],
             "cwd": "${workspaceFolder}"
         },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "24: alu",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=alu",
+                    "--package=advent-of-code-2021"
+                ],
+                "filter": {
+                    "name": "alu",
+                    "kind": "bin"
+                }
+            },
+            "args": ["24/data/input.txt"],
+            "cwd": "${workspaceFolder}"
+        },
     ]
+
 }
