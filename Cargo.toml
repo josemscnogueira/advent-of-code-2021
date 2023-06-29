@@ -108,6 +108,10 @@ path = "23/src/main.rs"
 name = "alu"
 path = "24/src/main.rs"
 
+[[bin]]
+name = "sea-cucumber"
+path = "25/src/main.rs"
+
 [dependencies]
 grid = "*"
 itertools = "*"
